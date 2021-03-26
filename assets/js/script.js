@@ -1,31 +1,19 @@
-var businessHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-var events = {};
+var eventTimes = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+var events = [];
 
 var updateDate = function() {
     var currentDay = moment().format('MMMM Do YYYY');
     $("#currentDay").append(currentDay);
 };
 
-// $("textarea").on("change", "textarea", function() {
-//     for (i = 0; i < timeId; i++) {
-//         var timeId = $(".time-block").find("#id")
-//         console.log(timeId);
-//         var eventTime = $("textarea").attr("id").text(timeId.Id);
-//         console.log(eventTime);
-//     }
-// });
-
-    //user clicks on text-area element
-$(".form-control").on("blur", function() {
+//assign event title based on save button
+$(".save-btn").on("click", function() {
     debugger;
-    var text=$("textarea").val();
-    $(text).addClass("col-8 hour form-control")
-        .replaceWith(text);
-        
+    var eventText = $("textarea").val();
+    var eventTime = $(".time-block").find("#id");
+    $("textarea").replaceWith('<textarea class="col-8 hour"' + 'id="' + eventTime + '">' + eventText + '</textarea>');
+    events.push(eventText);
 });
-
-
-
 
 var saveEvents = function() {
     localStorage.setItem("events", JSON.stringify(events));
