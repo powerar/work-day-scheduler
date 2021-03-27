@@ -9,9 +9,12 @@ var updateDate = function() {
 //assign event title based on save button
 $(".save-btn").on("click", function() {
     debugger;
-    var eventText = $("textarea").val();
-    var eventTime = $(".time-block").find("#id");
-    $("textarea").replaceWith('<textarea class="col-8 hour"' + 'id="' + eventTime + '">' + eventText + '</textarea>');
+    var eventText = $(this).siblings("textarea").val();
+    var eventTime = $(this).siblings(".time-block");
+    var textarea = $(this).siblings("textarea");
+    $(textarea).replaceWith('<textarea class="col-8 hour"' + 'id="' + eventTime.text() + '">' + eventText + '</textarea>');
+    console.log(eventTime);
+    console.log($(this).siblings());
     events.push(eventText);
 });
 
