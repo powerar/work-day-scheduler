@@ -9,7 +9,7 @@ var updateDate = function () {
 };
 
 //assign event title based on save button
-$(".save-btn").on("click", function () {
+$(".saveBtn").on("click", function () {
     var eventText = $(this).siblings("textarea").val();
     var eventTime = $(this).siblings(".time-block").attr("id");
     var textArea = $(this).siblings("textarea");
